@@ -1,39 +1,33 @@
 [gd_scene format=3 uid="uid://cbhs0hyvh547e"]
 
-[ext_resource type="Script" uid="uid://bl6g5lq557g2m" path="res://scripts/player.gd" id="1_jr88i"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_an55i"]
-size = Vector2(600, 32)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmfiq"]
-size = Vector2(24, 40)
+[ext_resource type="PackedScene" uid="uid://f3xg1we20fe1" path="res://scenes/floor.tscn" id="1_bs35o"]
+[ext_resource type="PackedScene" uid="uid://68ga8akun21n" path="res://scenes/player.tscn" id="1_xvgh4"]
+[ext_resource type="PackedScene" uid="uid://i0ert0eo4g2r" path="res://scenes/block.tscn" id="2_hi363"]
+[ext_resource type="PackedScene" uid="uid://bufqy15xxxe2l" path="res://scenes/companion.tscn" id="3_3s07w"]
+[ext_resource type="PackedScene" uid="uid://b2varr76bwxiy" path="res://scenes/enemy.tscn" id="3_xvgh4"]
 
 [node name="Level101" type="Node2D" unique_id=1168552389]
 
-[node name="Floor" type="StaticBody2D" parent="." unique_id=848029769]
+[node name="Floor" parent="." unique_id=1361178881 instance=ExtResource("1_bs35o")]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1623804624]
-position = Vector2(320, 320)
-shape = SubResource("RectangleShape2D_an55i")
+[node name="Player" parent="." unique_id=726948631 instance=ExtResource("1_xvgh4")]
+position = Vector2(226, 284)
 
-[node name="ColorRect" type="ColorRect" parent="Floor" unique_id=164277921]
-offset_left = 20.0
-offset_top = 304.0
-offset_right = 620.0
-offset_bottom = 337.0
-color = Color(0.17125294, 0.078206815, 0.055467397, 1)
+[node name="Companion" parent="." unique_id=1785809186 instance=ExtResource("3_3s07w")]
+position = Vector2(226, 258)
 
-[node name="Player" type="CharacterBody2D" parent="." unique_id=1414122340]
-position = Vector2(320, 200)
-script = ExtResource("1_jr88i")
+[node name="Obstacles" type="Node2D" parent="." unique_id=448840257]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=232559890]
-shape = SubResource("RectangleShape2D_rmfiq")
+[node name="Block1" parent="Obstacles" unique_id=999685247 instance=ExtResource("2_hi363")]
+position = Vector2(474, 272)
 
-[node name="ColorRect" type="ColorRect" parent="Player" unique_id=2023197097]
-offset_left = -12.0
-offset_top = -20.0
-offset_right = 12.0
-offset_bottom = 20.0
+[node name="Block2" parent="Obstacles" unique_id=1948781303 instance=ExtResource("2_hi363")]
+position = Vector2(474, 210)
 
-[node name="Camera2D" type="Camera2D" parent="Player" unique_id=1095209973]
+[node name="Block3" parent="Obstacles" unique_id=784922509 instance=ExtResource("2_hi363")]
+position = Vector2(332, 272)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=637550963]
+
+[node name="Enemy" parent="Enemies" unique_id=2015319253 instance=ExtResource("3_xvgh4")]
+position = Vector2(398, 290)

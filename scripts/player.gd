@@ -1,8 +1,8 @@
 extends CharacterBody2D
 
 const SPEED: float = 220.0
-const JUMP_VELOCITY: float = -380.0
-const GRAVITY: float = 1500.0
+const JUMP_VELOCITY: float = -400.0
+const GRAVITY: float = 1200.0
 
 func _physics_process(delta: float) -> void:
 	#gravity
@@ -22,3 +22,9 @@ func _physics_process(delta: float) -> void:
 		
 	#standard method for movement
 	move_and_slide()
+
+	# 5. Check if the player landed on or ran into an Enemy
+	for i: int in get_slide_collision_count():
+		var collider: Object = get_slide_collision(i).get_collider()
+		if collider.has_method("handle_player_hit"):
+			collider.handle_player_hit(self)

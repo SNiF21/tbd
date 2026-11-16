@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bufqy15xxxe2l"]
+
+[ext_resource type="Script" uid="uid://b85r31yv11w8u" path="res://scripts/companion.gd" id="1_0ewvi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rmfiq"]
+size = Vector2(30, 12)
+
+[node name="Companion" type="CharacterBody2D" unique_id=1785809186]
+script = ExtResource("1_0ewvi")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1638176706]
+shape = SubResource("RectangleShape2D_rmfiq")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=909933443]
+offset_left = -15.0
+offset_top = -6.0
+offset_right = 15.0
+offset_bottom = 6.0
+color = Color(0, 0.42352942, 1, 1)
