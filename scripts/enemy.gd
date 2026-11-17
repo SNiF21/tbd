@@ -7,6 +7,9 @@ const BOUNCE_VELOCITY: float = -320.0
 var direction: float = -1.0
 var is_dead: bool = false
 
+func _ready() -> void:
+	add_to_group("enemies")
+
 func _physics_process(delta: float) -> void:
 	if is_dead:
 		return

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbhs0hyvh547e"]
 
 [ext_resource type="PackedScene" uid="uid://f3xg1we20fe1" path="res://scenes/floor.tscn" id="1_bs35o"]
+[ext_resource type="PackedScene" uid="uid://jxdnajpdolic" path="res://scenes/finish.tscn" id="1_p1khh"]
 [ext_resource type="PackedScene" uid="uid://68ga8akun21n" path="res://scenes/player.tscn" id="1_xvgh4"]
 [ext_resource type="PackedScene" uid="uid://i0ert0eo4g2r" path="res://scenes/block.tscn" id="2_hi363"]
 [ext_resource type="PackedScene" uid="uid://bufqy15xxxe2l" path="res://scenes/companion.tscn" id="3_3s07w"]
@@ -8,13 +9,16 @@
 
 [node name="Level101" type="Node2D" unique_id=1168552389]
 
+[node name="Finish" parent="." unique_id=923538762 instance=ExtResource("1_p1khh")]
+position = Vector2(602, 280)
+
 [node name="Floor" parent="." unique_id=1361178881 instance=ExtResource("1_bs35o")]
 
 [node name="Player" parent="." unique_id=726948631 instance=ExtResource("1_xvgh4")]
 position = Vector2(226, 284)
 
 [node name="Companion" parent="." unique_id=1785809186 instance=ExtResource("3_3s07w")]
-position = Vector2(226, 258)
+position = Vector2(226, 298)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=448840257]
 

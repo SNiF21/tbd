@@ -23,8 +23,12 @@ func _physics_process(delta: float) -> void:
 	#standard method for movement
 	move_and_slide()
 
-	# 5. Check if the player landed on or ran into an Enemy
+	#landing next to or on enemy
 	for i: int in get_slide_collision_count():
 		var collider: Object = get_slide_collision(i).get_collider()
 		if collider.has_method("handle_player_hit"):
 			collider.handle_player_hit(self)
+			
+	#falling off map
+	if global_position.y > 600.0:
+		get_tree().call_deferred("reload_current_scene")
