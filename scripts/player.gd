@@ -1,8 +1,23 @@
 extends CharacterBody2D
 
+enum Emotion { NEUTRAL, RAGE, GRIEF }
+
+@export var level_emotion: Emotion = Emotion.NEUTRAL
+
 const SPEED: float = 220.0
 const JUMP_VELOCITY: float = -400.0
 const GRAVITY: float = 1200.0
+
+@onready var visual_rect: ColorRect = $ColorRect
+
+func _ready() -> void:
+	match level_emotion:
+		Emotion.NEUTRAL:
+			visual_rect.color = Color.WHITE
+		Emotion.RAGE:
+			visual_rect.color = Color.CRIMSON
+		Emotion.GRIEF:
+			visual_rect.color = Color.SLATE_BLUE
 
 func _physics_process(delta: float) -> void:
 	#gravity
