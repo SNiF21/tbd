@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cbhs0hyvh547e"]
 
 [ext_resource type="PackedScene" uid="uid://f3xg1we20fe1" path="res://scenes/floor.tscn" id="1_bs35o"]
+[ext_resource type="PackedScene" uid="uid://dca6j3p4e6q2g" path="res://scenes/checkpoint.tscn" id="1_mbx5r"]
 [ext_resource type="PackedScene" uid="uid://jxdnajpdolic" path="res://scenes/finish.tscn" id="1_p1khh"]
 [ext_resource type="PackedScene" uid="uid://68ga8akun21n" path="res://scenes/player.tscn" id="1_xvgh4"]
 [ext_resource type="PackedScene" uid="uid://i0ert0eo4g2r" path="res://scenes/block.tscn" id="2_hi363"]
@@ -10,30 +11,25 @@
 
 [node name="Level101" type="Node2D" unique_id=1168552389]
 
-[node name="Floor1" parent="." unique_id=1361178881 instance=ExtResource("1_bs35o")]
+[node name="Floors" type="Node2D" parent="." unique_id=917824122]
 
-[node name="Floor2" parent="." unique_id=2049891801 instance=ExtResource("1_bs35o")]
+[node name="Floor1" parent="Floors" unique_id=1361178881 instance=ExtResource("1_bs35o")]
+
+[node name="Floor2" parent="Floors" unique_id=2049891801 instance=ExtResource("1_bs35o")]
 position = Vector2(700, 0)
 
-[node name="Finish1" parent="." unique_id=923538762 instance=ExtResource("1_p1khh")]
-position = Vector2(1604, -44)
-
-[node name="Floor3" parent="." unique_id=971571641 instance=ExtResource("1_bs35o")]
+[node name="Floor3" parent="Floors" unique_id=971571641 instance=ExtResource("1_bs35o")]
 position = Vector2(1400, 0)
 
-[node name="Wall1" parent="." unique_id=1440083511 instance=ExtResource("3_0srce")]
+[node name="Walls" type="Node2D" parent="." unique_id=1158420767]
+
+[node name="Wall1" parent="Walls" unique_id=1440083511 instance=ExtResource("3_0srce")]
 position = Vector2(-280, -80)
 scale = Vector2(1, 1)
 
-[node name="Wall2" parent="." unique_id=1033328153 instance=ExtResource("3_0srce")]
+[node name="Wall2" parent="Walls" unique_id=1033328153 instance=ExtResource("3_0srce")]
 position = Vector2(1680, -80)
 scale = Vector2(1, 1)
-
-[node name="Player" parent="." unique_id=726948631 instance=ExtResource("1_xvgh4")]
-position = Vector2(-14, -40)
-
-[node name="Companion" parent="." unique_id=1785809186 instance=ExtResource("3_3s07w")]
-position = Vector2(-14, -26)
 
 [node name="Obstacles" type="Node2D" parent="." unique_id=448840257]
 
@@ -59,3 +55,20 @@ position = Vector2(129, -50)
 
 [node name="Enemy1" parent="Enemies" unique_id=2015319253 instance=ExtResource("3_xvgh4")]
 position = Vector2(1377, -34)
+
+[node name="Triggers" type="Node2D" parent="." unique_id=1039236899]
+
+[node name="Checkpoint1" parent="Triggers" unique_id=903330326 instance=ExtResource("1_mbx5r")]
+position = Vector2(420, -20)
+
+[node name="Checkpoint2" parent="Triggers" unique_id=1074626603 instance=ExtResource("1_mbx5r")]
+position = Vector2(1120, -20)
+
+[node name="Finish" parent="Triggers" unique_id=923538762 instance=ExtResource("1_p1khh")]
+position = Vector2(1604, -44)
+
+[node name="Player" parent="." unique_id=726948631 instance=ExtResource("1_xvgh4")]
+position = Vector2(-14, -40)
+
+[node name="Companion" parent="." unique_id=1785809186 instance=ExtResource("3_3s07w")]
+position = Vector2(-14, -26)

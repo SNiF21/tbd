@@ -29,4 +29,10 @@ func _physics_process(delta: float) -> void:
 	for i: int in get_slide_collision_count():
 		var collider: Object = get_slide_collision(i).get_collider()
 		if collider.has_method("handle_player_hit"):
-			get_tree().call_deferred("reload_current_scene")
+			player.call_deferred("die")
+
+func reset_to_player() -> void:
+	position_history.clear()
+	velocity = Vector2.ZERO
+	if player != null:
+		global_position = player.global_position + FOLLOW_OFFSET
